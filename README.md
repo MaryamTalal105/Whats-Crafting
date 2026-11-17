@@ -1,7 +1,7 @@
 # What's Crafting
 ## Project Planning
 
-- [Project board]: https://github.com/users/MaryamTalal105/projects/1/views/1
+- [Project board]: (https://github.com/users/MaryamTalal105/projects/1/views/1)
 - [Wireframe](./wireframe.png)
 
 ### Sprint 1
