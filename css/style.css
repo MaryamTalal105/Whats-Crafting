@@ -1,23 +1,104 @@
+/* color variables */
 :root{
-    
+    --dark-brown: #5B3928;
+    --warm-brown: #A96F45;
+    --cream: #E8C5A3;
+    --warm-Ivory: #FFF3DF;
+    --dusty-pink: #D58B75;
+    --sage-green: #788B55;
 }
 
 body{
-    margin: 0;
     padding: 20px 0;
     margin: 0px;
-    
-    
+    background-image: url(/assets/images/Background_Img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 h1{
     text-align: center;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 56px;
+    color:var(--warm-Ivory);
+    padding: 20px;                                              
 }
 
 p{
     text-align: center;
+    font-family: "Dosis", sans-serif;
+    color: var(--warm-Ivory);
+    font-size: 28px;
 }
 
-div{
-    margin: 0 auto;
+#category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.category-btn{
+    font-family: 'Minecraft', sans-serif;
+    color:var(--warm-Ivory);
+    background-color: var(--warm-brown);
+    border-color: var(--warm-brown);
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.instructions-btn{
+    font-family: 'Minecraft', sans-serif;
+    color:var(--warm-Ivory);
+    background-color: var(--sage-green);
+    border-color: var(--sage-green);
+    width: 250px;
+    height: 60px;
+    display: block;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+#instructions{
+    background-color: var(--sage-green);
+    border-color: var(--dark-brown);
+    width: 500px;
+    height: 350px;
+}
+
+.close-btn{
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: transparent;
+    border-width: 0;
+    font-size: 30px;
+    color: var(--dark-brown);
+}
+
+#instructions > p {
+    color: var(--warm-Ivory);
+    text-align: center;
+    margin-top: 60px;
+    
+}
+
+#instructions > h2 {
+    color: var(--warm-Ivory);
+    text-align: center;
+    font-family: 'Minecraft', sans-serif;
+
+}
+
+#instructions::backdrop {
+  background-color: rgba(35, 20, 12, 0.7);
+}
+
+#game-screen{
+    display: none;
 }
