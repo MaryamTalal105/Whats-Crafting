@@ -6,6 +6,10 @@
     --warm-Ivory: #FFF3DF;
     --dusty-pink: #D58B75;
     --sage-green: #788B55;
+
+    --slot-grey: #8B8B8B;
+    --slot-dark: #373737;
+    --slot-light: #FFFFFF;
 }
 
 body{
@@ -107,40 +111,58 @@ p{
 }
 
 #game-states{
+    margin: 0 auto;
+    padding: 15px 25px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 80%;
+    box-sizing: border-box;
   
 }
 
-#hearts{
+#hearts, #timer, #gold-nuggets{
     display: flex;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
+    flex:1;
+
 }
 
-#hearts > img{
-    width: 50px;
-    height: 50px;
+#hearts > img, #gold-nuggets > img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+#hearts{
+    gap: 5px;
 }
 
 #gold-nuggets{
-    display: flex;
-    justify-content: center;
-    gap: 5px;
+    gap: 8px;
 }
 
-#gold-nuggets > img{
-    width: 50px;
-    height: 50px;
-}
-
-#gold-nuggets > p{
+#gold-nuggets > p, #timer > p{
     margin: 0;
     font-family: 'Minecraft', sans-serif;
+    font-size: 28px;
 }
 
-#timer > p{
-    margin: 0;
-    font-family: 'Minecraft', sans-serif;
+#crafting-grid{
+  width: 306px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sqr{
+  width: 102px;
+  height: 102px;
+  background-color: var(--slot-grey);
+  border-top:4px solid var(--slot-dark);
+  border-left:4px solid var(--slot-dark);
+  border-right:4px solid var(--slot-light);
+  border-bottom:4px solid var(--slot-light);
+  box-sizing: border-box;
 }
