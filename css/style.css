@@ -108,6 +108,7 @@ p{
 }
 
 #game-screen {
+    
 }
 
 #game-states{
@@ -146,8 +147,10 @@ p{
 #gold-nuggets > p, #timer > p{
     margin: 0;
     font-family: 'Minecraft', sans-serif;
-    font-size: 28px;
+    font-size: 35px;
 }
+
+
 
 #crafting-grid{
   width: 306px;
@@ -165,4 +168,50 @@ p{
   border-right:4px solid var(--slot-light);
   border-bottom:4px solid var(--slot-light);
   box-sizing: border-box;
+}
+
+#answer-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 60px auto 30px;
+}
+
+.answer-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 25px;
+    gap: 10px;
+    width: 250px;
+    height: 100px;
+    background-color: var(--warm-Ivory);
+    border: 3px solid var(--dark-brown);
+    cursor: pointer;
+}
+
+.answer-card > p{
+    margin: 0;
+    color: var(--dark-brown);
+    font-family: 'Minecraft', sans-serif;
+    font-size: 20px;
+}
+.answer-card > img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.sqr > img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+p {
+    font-family: 'Minecraft', sans-serif;
+    font-size: 35px;
+    color:var(--warm-Ivory);
+    text-align: center;
 }
