@@ -99,6 +99,48 @@ p{
   background-color: rgba(35, 20, 12, 0.7);
 }
 
-#game-screen{
+#main-menu{
     display: none;
+}
+
+#game-screen {
+}
+
+#game-states{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+
+#hearts{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+#hearts > img{
+    width: 50px;
+    height: 50px;
+}
+
+#gold-nuggets{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+#gold-nuggets > img{
+    width: 50px;
+    height: 50px;
+}
+
+#gold-nuggets > p{
+    margin: 0;
+    font-family: 'Minecraft', sans-serif;
+}
+
+#timer > p{
+    margin: 0;
+    font-family: 'Minecraft', sans-serif;
 }
