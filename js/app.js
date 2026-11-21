@@ -77,7 +77,7 @@ const toolRecipes = [
     {
         name: "Iron Pickaxe",
         image: "Iron_Pickaxe_Img.png",
-        options: ["Wooden Pickaxe","Gold Pickaxe","Iron Pickaxe"],
+        options: ["Wooden Pickaxe","Golden Pickaxe","Iron Pickaxe"],
         ingredients: [
             "Iron Ingot","Iron Ingot","Iron Ingot",
             null,"Stick",null,
@@ -87,7 +87,7 @@ const toolRecipes = [
     {
         name: "Wooden Shovel",
         image: "Wooden_Shovel_Img.png",
-        options: ["Wooden Shovel","Diamond Shovel","Gold Shovel"],
+        options: ["Wooden Shovel","Diamond Shovel","Golden Shovel"],
         ingredients: [
             null,"Wooden Plank",null,
             null,"Stick",null,
@@ -107,7 +107,7 @@ const toolRecipes = [
     {
         name: "Shears",
         image: "Shears_Img.png",
-        options: ["Gold Shovel","Brush","Shears"],
+        options: ["Golden Shovel","Brush","Shears"],
         ingredients: [
             null,"Iron Ingot",null,
             "Iron Ingot",null,null,
@@ -117,11 +117,11 @@ const toolRecipes = [
     {
         name: "Fishing Rod",
         image: "Fishing_Rod_Img.png",
-        options: ["Fishing Rod","Wooden Shovel","Gold Pickaxe"],
+        options: ["Fishing Rod","Wooden Shovel","Golden Pickaxe"],
         ingredients: [
-            "Milk Bucket","Milk Bucket","Milk Bucket",
-            "Sugar","Egg","Sugar",
-            "Wheat","Wheat","Wheat"
+            null,null,"Stick",
+            null,"Stick","String",
+            "Stick",null,"String"
         ]
     },
     {
