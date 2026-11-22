@@ -270,10 +270,9 @@ let isGameOver = false
 let hearts = 3
 let diamonds = 0
 //stores the remaining seconds
-let timeLeft = 20
+let timeLeft = 15
 //stores identifier for the repeating timer to stop later
 let timerId = null 
-timeLeft.textContent = timeLeft
 let selectedAnswer = null
 
 
@@ -302,7 +301,7 @@ const diamondCountEl = document.querySelector('#diamond-count')
 const heartEls =  document.querySelector('#hearts')
 
 const timeLeftEl = document.querySelector('#time-left')
-console.log(timeLeftEl)
+timeLeftEl.textContent = timeLeft
 
 /*------------- Functions --------------------------------*/
 // A function to handle category selection 
@@ -328,6 +327,10 @@ const recipesDisplayHandler = () => {
     currentRecipe = availableRecipes[currentRound - 1]
     ingredientsDisplayHandler()
     answerCardsHandler()
+    timeLeft = 15
+    timeLeftEl.textContent = timeLeft
+    startTimer()
+
 }
 
 // A function to handle ingredients display of current round
@@ -370,6 +373,7 @@ const answerCardsHandler = () => {
 // A function to handle correct answer and rewards
 const correctAnswerHandler = () => {
     if(isAnswered === false){
+        stopTimer()
         diamonds = diamonds + 4
         diamondCountEl.textContent = diamonds
         isAnswered = true;
@@ -383,6 +387,7 @@ const correctAnswerHandler = () => {
 // A function to handle wrong answer and lives
 const wrongAnswerHandler = () => {
     if(isAnswered === false){
+        stopTimer()
         hearts = hearts -1
         heartEls.lastElementChild.remove()
         isAnswered = true;
@@ -419,12 +424,19 @@ const updateTimer = () => {
     timeLeft = timeLeft - 1
     timeLeftEl.textContent = timeLeft
     if(timeLeft === 0){
-        clearInterval(timerId)
-        timerId = null
+        stopTimer()
+        wrongAnswerHandler()
     }
 }
 
+const startTimer = () => {
+    timerId = setInterval(updateTimer,1000);
+}
 
+const stopTimer = () => {
+    clearInterval(timerId)
+    timerId = null
+}
 /*---------- Event Listeners -----------------------------*/
 instructionsButtonEl.addEventListener('click', () => {
     instructionsModalEl.showModal()
