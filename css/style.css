@@ -103,12 +103,13 @@ p{
   background-color: rgba(35, 20, 12, 0.7);
 }
 
+/* Handle screens */
 #main-menu{
-    display: none;
+    display: block;
 }
 
 #game-screen {
-    
+    display: none
 }
 
 #game-states{
@@ -122,7 +123,7 @@ p{
   
 }
 
-#hearts, #timer, #gold-nuggets{
+#hearts, #timer, #diamond{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +131,7 @@ p{
 
 }
 
-#hearts > img, #gold-nuggets > img{
+#hearts > img, #diamond > img{
     width: 60px;
     height: 60px;
     object-fit: contain;
@@ -140,11 +141,11 @@ p{
     gap: 5px;
 }
 
-#gold-nuggets{
-    gap: 8px;
+#diamond{
+    gap: 15px;
 }
 
-#gold-nuggets > p, #timer > p{
+#diamond > p, #timer > p{
     margin: 0;
     font-family: 'Minecraft', sans-serif;
     font-size: 35px;
@@ -209,9 +210,27 @@ p{
     object-fit: contain;
 }
 
-p {
+#round-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px auto;
+}
+
+#round{
+    margin: 0;
     font-family: 'Minecraft', sans-serif;
-    font-size: 35px;
-    color:var(--warm-Ivory);
-    text-align: center;
+
+}
+
+#next-btn{
+    font-family: 'Minecraft', sans-serif;
+    color: var(--warm-Ivory);
+    background-color: var(--warm-brown);
+    border: 2px solid var(--dark-brown);
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+
 }

@@ -24,15 +24,15 @@
         <dialog id="instructions">
             <h2>Welcome crafter!</h2>
             <p>The rules are easy..<br>
-            pick a category, guess the recipe, beat the timer, collect gold nuggets for every correct answer,
+            pick a category, guess the recipe, beat the timer, collect diamonds for every correct answer,
             and keep your hearts and become a crafting master!</p>
             <button class="close-btn" id="close-instructions">&#x2716</button>
         </dialog>
     </header>
     <div id="category">
         <p>Choose your category</p>
-            <button class="category-btn">Food</button>
-            <button class="category-btn">Tools</button> 
+            <button class="category-btn" id="food">Food</button>
+            <button class="category-btn" id="tools">Tools</button> 
     </div>
     </section>
     <!-- Game-Screen Section -->
@@ -47,11 +47,11 @@
                 <img src="assets/images/Heart_Img.png" alt="Heart">
             </div>
             <div id="timer">
-                <p>0:00</p>
+                <p>Time Left: <span id="time-left">0</span> sec</p>
             </div>
-            <div id="gold-nuggets">
-                <img src="assets/images/Gold_Img.png" alt="Gold Nugget">
-                <p>0</p>
+            <div id="diamond">
+                <img src="assets/images/Diamond_Img.png" alt="Diamond">
+                <p id ='diamond-count'>0</p>
             </div>
             </header>
             </div>
@@ -84,7 +84,10 @@
                             <p></p>
                         </div>
                     </section>
-                    <p>Round 1 / 7</p>
+                    <div id="round-control">
+                    <p id="round">Round 1 / 7</p>
+                    <button id="next-btn">Next</button> 
+                    </div>
                     </div>
              
               

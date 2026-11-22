@@ -3,157 +3,277 @@ const foodRecipes = [
     {
         name: "Rabbit Stew",
         image: "Rabbit_Stew_Img.png",
-        options: ["Beetroot Soup","Mushroom Stew","Rabbit Stew"],
+        options: [
+            { name: "Beetroot Soup", image: "assets/images/Beetroot_Soup_Img.png" },
+            { name: "Mushroom Stew", image: "assets/images/Mushroom_Stew_Img.png" },
+            { name: "Rabbit Stew", image: "assets/images/Rabbit_Stew_Img.png" }
+        ],
         ingredients: [
-            "Baked Potato","Cooked Rabbit","Bowl",
-            "Carrot","Brown Mushroom",null,
-            null,null,null
+            { name: "Baked Potato", image: "assets/images/Potato_Img.png" },
+            { name: "Cooked Rabbit", image: "assets/images/Rabbit_Img.png" },
+            { name: "Bowl", image: "assets/images/Bowl_Img.png" },
+            { name: "Carrot", image: "assets/images/Carrot_Img.png" },
+            { name: "Brown Mushroom", image: "assets/images/Brown_Mushroom_Img.png" },
+            null, null, null, null
         ]
     },
     {
         name: "Mushroom Stew",
         image: "Mushroom_Stew_Img.png",
-        options: ["Rabbit Stew","Beetroot Soup","Mushroom Stew"],
+        options: [
+            { name: "Rabbit Stew", image: "assets/images/Rabbit_Stew_Img.png" },
+            { name: "Beetroot Soup", image: "assets/images/Beetroot_Soup_Img.png" },
+            { name: "Mushroom Stew", image: "assets/images/Mushroom_Stew_Img.png" }
+        ],
         ingredients: [
-            "Brown Mushroom","Red Mushroom","Bowl",
-            null,null,null,
-            null,null,null
+            { name: "Brown Mushroom", image: "assets/images/Brown_Mushroom_Img.png" },
+            { name: "Red Mushroom", image: "assets/images/Red_Mushroom_Img.png" },
+            { name: "Bowl", image: "assets/images/Bowl_Img.png" },
+            null, null, null, null, null, null
         ]
     },
     {
         name: "Beetroot Soup",
         image: "Beetroot_Soup_Img.png",
-        options: ["Pumpkin Pie","Mushroom Stew","Beetroot Soup"],
+        options: [
+            { name: "Pumpkin Pie", image: "assets/images/Pumpkin_Pie_Img.png" },
+            { name: "Mushroom Stew", image: "assets/images/Mushroom_Stew_Img.png" },
+            { name: "Beetroot Soup", image: "assets/images/Beetroot_Soup_Img.png" }
+        ],
         ingredients: [
-            "Bowl","Beetroot","Beetroot",
-            "Beetroot","Beetroot","Beetroot",
-            "Beetroot",null,null
+            { name: "Bowl", image: "assets/images/Bowl_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            { name: "Beetroot", image: "assets/images/Beetroot_Img.png" },
+            null, null
         ]
     },
     {
         name: "Bread",
         image: "Bread_Img.png",
-        options: ["Cookie","Bread","Cake"],
+        options: [
+            { name: "Cookie", image: "assets/images/Cookie_Img.png" },
+            { name: "Bread", image: "assets/images/Bread_Img.png" },
+            { name: "Cake", image: "assets/images/Cake_Img.png" }
+        ],
         ingredients: [
-            "Wheat","Wheat","Wheat",
-            null,null,null,
-            null,null,null
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            null, null, null, null, null, null
         ]
     },
     {
         name: "Cake",
         image: "Cake_Img.png",
-        options: ["Cake","Pumpkin Pie","Cookie"],
+        options: [
+            { name: "Cake", image: "assets/images/Cake_Img.png" },
+            { name: "Pumpkin Pie", image: "assets/images/Pumpkin_Pie_Img.png" },
+            { name: "Cookie", image: "assets/images/Cookie_Img.png" }
+        ],
         ingredients: [
-            "Milk Bucket","Milk Bucket","Milk Bucket",
-            "Sugar","Egg","Sugar",
-            "Wheat","Wheat","Wheat"
+            { name: "Milk Bucket", image: "assets/images/Milk_Img.png" },
+            { name: "Milk Bucket", image: "assets/images/Milk_Img.png" },
+            { name: "Milk Bucket", image: "assets/images/Milk_Img.png" },
+            { name: "Sugar", image: "assets/images/Sugar_Img.png" },
+            { name: "Egg", image: "assets/images/Egg_Img.png" },
+            { name: "Sugar", image: "assets/images/Sugar_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" }
         ]
     },
     {
         name: "Cookie",
         image: "Cookie_Img.png",
-        options: ["Bread","Cookie","Cake"],
+        options: [
+            { name: "Bread", image: "assets/images/Bread_Img.png" },
+            { name: "Cookie", image: "assets/images/Cookie_Img.png" },
+            { name: "Cake", image: "assets/images/Cake_Img.png" }
+        ],
         ingredients: [
-            "Wheat","Cocoa Beans","Wheat",
-            null,null,null,
-            null,null,null
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            { name: "Cocoa Beans", image: "assets/images/Cocoa_Img.png" },
+            { name: "Wheat", image: "assets/images/Wheat_Img.png" },
+            null, null, null, null, null, null
         ]
     },
     {
         name: "Pumpkin Pie",
         image: "Pumpkin_Pie_Img.png",
-        options: ["Rabbit Stew","Cake","Pumpkin Pie"],
+        options: [
+            { name: "Rabbit Stew", image: "assets/images/Rabbit_Stew_Img.png" },
+            { name: "Cake", image: "assets/images/Cake_Img.png" },
+            { name: "Pumpkin Pie", image: "assets/images/Pumpkin_Pie_Img.png" }
+        ],
         ingredients: [
-            "Pumpkin","Sugar","Egg",
-            null,null,null,
-            null,null,null
+            { name: "Pumpkin", image: "assets/images/Pumpkin_Img.png" },
+            { name: "Sugar", image: "assets/images/Sugar_Img.png" },
+            { name: "Egg", image: "assets/images/Egg_Img.png" },
+            null, null, null, null, null, null
         ]
-    },
-]
+    }
+];
+
 
 /*--------- Tools Recipes Array ----------------------------*/
 const toolRecipes = [
     {
         name: "Iron Pickaxe",
         image: "Iron_Pickaxe_Img.png",
-        options: ["Wooden Pickaxe","Golden Pickaxe","Iron Pickaxe"],
+        options: [
+            { name: "Wooden Pickaxe", image: "assets/images/Wooden_Pickaxe_Img.png" },
+            { name: "Golden Pickaxe", image: "assets/images/Golden_Pickaxe_Img.png" },
+            { name: "Iron Pickaxe", image: "assets/images/Iron_Pickaxe_Img.png" }
+        ],
         ingredients: [
-            "Iron Ingot","Iron Ingot","Iron Ingot",
-            null,"Stick",null,
-            null,"Stick",null
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null,
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null
         ]
     },
     {
         name: "Wooden Shovel",
         image: "Wooden_Shovel_Img.png",
-        options: ["Wooden Shovel","Diamond Shovel","Golden Shovel"],
+        options: [
+            { name: "Wooden Shovel", image: "assets/images/Wooden_Shovel_Img.png" },
+            { name: "Diamond Shovel", image: "assets/images/Diamond_Shovel_Img.png" },
+            { name: "Golden Shovel", image: "assets/images/Golden_Shovel_Img.png" }
+        ],
         ingredients: [
-            null,"Wooden Plank",null,
-            null,"Stick",null,
-            null,"Stick",null
+            null,
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            null,
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null,
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null
         ]
     },
     {
         name: "Diamond Sword",
         image: "Diamond_Sword_Img.png",
-        options: ["Golden Sword","Diamond Sword","Wooden Sword"],
+        options: [
+            { name: "Golden Sword", image: "assets/images/Golden_Sword_Img.png" },
+            { name: "Diamond Sword", image: "assets/images/Diamond_Sword_Img.png" },
+            { name: "Wooden Sword", image: "assets/images/Wooden_Sword_Img.png" }
+        ],
         ingredients: [
-            "Diamond",null,null,
-            "Diamond",null,null,
-            "Stick",null,null
+            null,
+            { name: "Diamond", image: "assets/images/Diamond_Img.png" },
+            null,
+            null,
+            { name: "Diamond", image: "assets/images/Diamond_Img.png" },
+            null,
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null
         ]
     },
     {
         name: "Shears",
         image: "Shears_Img.png",
-        options: ["Golden Shovel","Brush","Shears"],
+        options: [
+            { name: "Golden Shovel", image: "assets/images/Golden_Shovel_Img.png" },
+            { name: "Brush", image: "assets/images/Brush_Img.png" },
+            { name: "Shears", image: "assets/images/Shears_Img.png" }
+        ],
         ingredients: [
-            null,"Iron Ingot",null,
-            "Iron Ingot",null,null,
-            null,null,null
+            null,
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            null,
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            null, null, null, null, null
         ]
     },
     {
         name: "Fishing Rod",
         image: "Fishing_Rod_Img.png",
-        options: ["Fishing Rod","Wooden Shovel","Golden Pickaxe"],
+        options: [
+            { name: "Fishing Rod", image: "assets/images/Fishing_Rod_Img.png" },
+            { name: "Wooden Shovel", image: "assets/images/Wooden_Shovel_Img.png" },
+            { name: "Golden Pickaxe", image: "assets/images/Golden_Pickaxe_Img.png" }
+        ],
         ingredients: [
-            null,null,"Stick",
-            null,"Stick","String",
-            "Stick",null,"String"
+            null, null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            { name: "String", image: "assets/images/String_Img.png" },
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null,
+            { name: "String", image: "assets/images/String_Img.png" }
         ]
     },
     {
         name: "Brush",
         image: "Brush_Img.png",
-        options: ["Brush","Shield","Wooden Sword"],
+        options: [
+            { name: "Brush", image: "assets/images/Brush_Img.png" },
+            { name: "Shield", image: "assets/images/Shield_Img.png" },
+            { name: "Wooden Sword", image: "assets/images/Wooden_Sword_Img.png" }
+        ],
         ingredients: [
-            "Feather",null,null,
-            "Copper Ingot",null,null,
-            "Stick",null,null
+            null,
+            { name: "Feather", image: "assets/images/Feather_Img.png" },
+            null,
+            null,
+            { name: "Copper Ingot", image: "assets/images/Copper_Ingot_Img.png" },
+            null,
+            null,
+            { name: "Stick", image: "assets/images/Stick_Img.png" },
+            null
         ]
     },
     {
         name: "Shield",
         image: "Shield_Img.png",
-        options: ["Fishing Rod","Brush","Shield"],
+        options: [
+            { name: "Fishing Rod", image: "assets/images/Fishing_Rod_Img.png" },
+            { name: "Brush", image: "assets/images/Brush_Img.png" },
+            { name: "Shield", image: "assets/images/Shield_Img.png" }
+        ],
         ingredients: [
-            "Wooden Plank","Iron Ingot","Wooden Plank",
-            "Wooden Plank","Wooden Plank","Wooden Plank",
-            null,"Wooden Plank",null
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            { name: "Iron Ingot", image: "assets/images/Iron_Ingot_Img.png" },
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            null,
+            { name: "Wooden Plank", image: "assets/images/Wooden_Planks_Img.png" },
+            null
         ]
-    },
-]
-
-/*------------- Constants --------------------------------*/
-
+    }
+];
 
 
 
 /*--------- Variables (state) ----------------------------*/
-let selectedCategory = "";
-
+let selectedCategory = ""
+let currentRound = 1
+let currentRecipe = 1
+let availableRecipes = []
+let isAnswered = false
+let isGameOver = false
+let hearts = 3
+let diamonds = 0
+//stores the remaining seconds
+let timeLeft = 30
+//stores identifier for the repeating timer to stop later
+let timerId = null 
+timeLeft.textContent = timeLeft
 
 
 
@@ -161,18 +281,132 @@ let selectedCategory = "";
 const instructionsButtonEl = document.querySelector('#open-instructions')
 const instructionsModalEl = document.querySelector('#instructions')
 const closeInstructionsButtonEl = document.querySelector("#close-instructions")
-const categorySelectionButtonEls = document.querySelectorAll('.category-Btn')
-// Test
-//console.log(instructionsButtonEl,instructionsModalEl,closeInstructionsButtonEl)
-//console.log(categorySelectionButtonEls)
+
+const foodButtonEl = document.querySelector('#food')
+const toolButtonEl = document.querySelector('#tools')
+
+const menuScreen = document.querySelector('#main-menu')
+const gameScreen = document.querySelector('#game-screen')
+
+const categorySelectionButtonEls = document.querySelectorAll('.category-btn')
+
+const nextButtonEl = document.querySelector('#next-btn') 
+const roundTextEl = document.querySelector('#round')
+
+const craftingSlotEls = document.querySelectorAll('.sqr')
+const answerCardEls = document.querySelectorAll('.answer-card')
+
+const answerCardImgs = document.querySelectorAll('.answer-card img')
+const answerCardPs = document.querySelectorAll('.answer-card p')
+
+const diamondCountEl = document.querySelector('#diamond-count')
+const heartEls =  document.querySelectorAll('#hearts')
+
+const timeLeftEl = document.querySelector('#time-left')
+console.log(timeLeftEl)
 
 /*------------- Functions --------------------------------*/
 // A function to handle category selection 
 const categorySelectionHandler = (event) => {
     selectedCategory = event.target.textContent;
-    console.log(selectedCategory)
+    //console.log(selectedCategory)
+    menuScreen.style.display = 'none';
+    gameScreen.style.display = 'block';
+
+    if (selectedCategory === 'Food'){
+        availableRecipes = foodRecipes
+        //Test: console.log(availableRecipes)
+        
+    }else{
+        availableRecipes = toolRecipes 
+        //Test: console.log(toolRecipes)
+    }
+    recipesDisplayHandler()
 }
 
+// A funtion to handle recipe display to current round
+const recipesDisplayHandler = () => {
+    currentRecipe = availableRecipes[currentRound - 1]
+    ingredientsDisplayHandler()
+    answerCardsHandler()
+}
+
+// A function to handle ingredients display of current round
+const ingredientsDisplayHandler = () => {
+    craftingSlotEls.forEach((slot, index) => {
+        slot.textContent = ''
+        const ingredient = currentRecipe.ingredients[index]
+        if(ingredient === null) {
+            return
+        }else{
+            const ingredientImg = document.createElement('img');
+            ingredientImg.src = ingredient.image
+            slot.appendChild(ingredientImg)
+
+        }
+        
+    });
+
+
+}
+
+// A function to handle display of answer card options
+const answerCardsHandler = () => {
+    answerCardEls.forEach((card,index) => {
+
+        const answer = currentRecipe.options[index]
+
+        const answerName = answer.name
+        const answerImage = answer.image
+
+        const answerText = answerCardPs[index]
+        const answerImg = answerCardImgs[index]
+
+        answerImg.src = answerImage
+        answerImg.alt = answerName
+        answerText.textContent = answerName
+    });
+}
+
+// A function to handle correct answer and rewards
+const correctAnswerHandler = () => {
+    if(isAnswered === false){
+        diamonds = diamonds + 4
+        diamondCountEl.textContent = diamonds
+        isAnswered = true;
+    }else{
+        return
+    }
+
+}
+
+// A function to handle wrong answer and lives
+const wrongAnswerHandler = () => {
+    if(isAnswered === false){
+        hearts = hearts -1
+        heartEls.lastElementChild.remove()
+        isAnswered = true;
+
+    }else{
+        return
+    }
+}
+
+
+// A function to handle next round
+const nextRoundHandler = () => {
+    if(currentRound < 7 ) {
+        currentRound++
+        isAnswered = false
+        roundTextEl.textContent = `Round ${currentRound} / 7`
+        recipesDisplayHandler()
+    }
+    else{
+        isGameOver = true;
+
+    }
+    
+}
 
 
 
@@ -188,4 +422,6 @@ closeInstructionsButtonEl.addEventListener('click', () => {
 categorySelectionButtonEls.forEach(element => {
     element.addEventListener('click', categorySelectionHandler)
 });
+
+nextButtonEl.addEventListener('click', nextRoundHandler)
 
