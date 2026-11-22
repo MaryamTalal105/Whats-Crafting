@@ -274,7 +274,7 @@ let timeLeft = 30
 //stores identifier for the repeating timer to stop later
 let timerId = null 
 timeLeft.textContent = timeLeft
-
+let selectedAnswer = null
 
 
 /*----- Cached Element References ------------------------*/
@@ -300,7 +300,7 @@ const answerCardImgs = document.querySelectorAll('.answer-card img')
 const answerCardPs = document.querySelectorAll('.answer-card p')
 
 const diamondCountEl = document.querySelector('#diamond-count')
-const heartEls =  document.querySelectorAll('#hearts')
+const heartEls =  document.querySelector('#hearts')
 
 const timeLeftEl = document.querySelector('#time-left')
 console.log(timeLeftEl)
@@ -395,6 +395,9 @@ const wrongAnswerHandler = () => {
 
 // A function to handle next round
 const nextRoundHandler = () => {
+    if(isAnswered === false){
+        return
+    }
     if(currentRound < 7 ) {
         currentRound++
         isAnswered = false
@@ -425,3 +428,13 @@ categorySelectionButtonEls.forEach(element => {
 
 nextButtonEl.addEventListener('click', nextRoundHandler)
 
+answerCardEls.forEach((card,index) => {
+    card.addEventListener('click', () => {
+        selectedAnswer = currentRecipe.options[index]
+        if(selectedAnswer.name === currentRecipe.name){
+            correctAnswerHandler()
+        }else{
+            wrongAnswerHandler()
+        }
+    })
+});
