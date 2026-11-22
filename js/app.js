@@ -270,7 +270,7 @@ let isGameOver = false
 let hearts = 3
 let diamonds = 0
 //stores the remaining seconds
-let timeLeft = 30
+let timeLeft = 20
 //stores identifier for the repeating timer to stop later
 let timerId = null 
 timeLeft.textContent = timeLeft
@@ -290,7 +290,6 @@ const gameScreen = document.querySelector('#game-screen')
 
 const categorySelectionButtonEls = document.querySelectorAll('.category-btn')
 
-const nextButtonEl = document.querySelector('#next-btn') 
 const roundTextEl = document.querySelector('#round')
 
 const craftingSlotEls = document.querySelectorAll('.sqr')
@@ -374,6 +373,7 @@ const correctAnswerHandler = () => {
         diamonds = diamonds + 4
         diamondCountEl.textContent = diamonds
         isAnswered = true;
+        nextRoundHandler()
     }else{
         return
     }
@@ -386,6 +386,7 @@ const wrongAnswerHandler = () => {
         hearts = hearts -1
         heartEls.lastElementChild.remove()
         isAnswered = true;
+        nextRoundHandler()
 
     }else{
         return
@@ -395,12 +396,14 @@ const wrongAnswerHandler = () => {
 
 // A function to handle next round
 const nextRoundHandler = () => {
-    if(isAnswered === false){
+    if (hearts <= 0){
+        isGameOver = true
         return
     }
     if(currentRound < 7 ) {
         currentRound++
         isAnswered = false
+        selectedAnswer = null
         roundTextEl.textContent = `Round ${currentRound} / 7`
         recipesDisplayHandler()
     }
@@ -411,6 +414,15 @@ const nextRoundHandler = () => {
     
 }
 
+// A function to substract 1 seconds at a time from timeLeft
+const updateTimer = () => {
+    timeLeft = timeLeft - 1
+    timeLeftEl.textContent = timeLeft
+    if(timeLeft === 0){
+        clearInterval(timerId)
+        timerId = null
+    }
+}
 
 
 /*---------- Event Listeners -----------------------------*/
@@ -426,7 +438,7 @@ categorySelectionButtonEls.forEach(element => {
     element.addEventListener('click', categorySelectionHandler)
 });
 
-nextButtonEl.addEventListener('click', nextRoundHandler)
+
 
 answerCardEls.forEach((card,index) => {
     card.addEventListener('click', () => {
