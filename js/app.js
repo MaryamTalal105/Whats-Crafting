@@ -303,15 +303,29 @@ const heartEls =  document.querySelector('#hearts')
 const timeLeftEl = document.querySelector('#time-left')
 timeLeftEl.textContent = timeLeft
 
+const resultScreen = document.querySelector('#result-screen')
+const resultTitleEl = document.querySelector('#result-title')
+const resultMsgEl = document.querySelector('#result-msg')
+const totalDiamondsEl = document.querySelector('#total')
+
+const restartButtonEl = document.querySelector('#restart-btn')
+const mainButtonEl = document.querySelector('#main-btn')
+
 /*------------- Functions --------------------------------*/
 // A function to handle category selection 
 const categorySelectionHandler = (event) => {
+    //1. store category selected
     selectedCategory = event.target.textContent;
     //console.log(selectedCategory)
+    //2. call restart func
+    restGameHandler()
+    //3. hide menu and show game screen
     menuScreen.style.display = 'none';
     gameScreen.style.display = 'block';
 
+    //4. check selected category
     if (selectedCategory === 'Food'){
+        //assign corresponding array "Food recipes or tools recipes"
         availableRecipes = foodRecipes
         //Test: console.log(availableRecipes)
         
@@ -319,14 +333,19 @@ const categorySelectionHandler = (event) => {
         availableRecipes = toolRecipes 
         //Test: console.log(toolRecipes)
     }
+    //4. call recipe display handler func
     recipesDisplayHandler()
 }
 
 // A funtion to handle recipe display to current round
 const recipesDisplayHandler = () => {
+    //1.  store current recipe 
     currentRecipe = availableRecipes[currentRound - 1]
+    //2. call ingredients display handler func
     ingredientsDisplayHandler()
+    //3. call the answer cards handler func
     answerCardsHandler()
+    //4. start timer 
     timeLeft = 15
     timeLeftEl.textContent = timeLeft
     startTimer()
@@ -335,11 +354,16 @@ const recipesDisplayHandler = () => {
 
 // A function to handle ingredients display of current round
 const ingredientsDisplayHandler = () => {
+    //1. loop through the crafting slot
     craftingSlotEls.forEach((slot, index) => {
+        //2. clear slot
         slot.textContent = ''
+        //3. get the ingredient for this slot
         const ingredient = currentRecipe.ingredients[index]
+        //4. check if ingredient is null, skip
         if(ingredient === null) {
             return
+            //otherwise, create img element, assign it src and append
         }else{
             const ingredientImg = document.createElement('img');
             ingredientImg.src = ingredient.image
@@ -354,16 +378,21 @@ const ingredientsDisplayHandler = () => {
 
 // A function to handle display of answer card options
 const answerCardsHandler = () => {
+    //1. loop through the 3 answer cards
     answerCardEls.forEach((card,index) => {
 
+        //2. get the answer for this card
         const answer = currentRecipe.options[index]
-
+        
+        //3. get the answer name and img
         const answerName = answer.name
         const answerImage = answer.image
 
+        //4. get the answer text and img placeholders from the html
         const answerText = answerCardPs[index]
         const answerImg = answerCardImgs[index]
 
+        //5. assign src, alt and text for placeholders
         answerImg.src = answerImage
         answerImg.alt = answerName
         answerText.textContent = answerName
@@ -372,12 +401,18 @@ const answerCardsHandler = () => {
 
 // A function to handle correct answer and rewards
 const correctAnswerHandler = () => {
+    //1. check if question is answered 
     if(isAnswered === false){
+        //stop timer
         stopTimer()
+        //reward
         diamonds = diamonds + 4
         diamondCountEl.textContent = diamonds
+        //change to answered
         isAnswered = true;
+        //call next round handler func
         nextRoundHandler()
+        //otherwise, skip
     }else{
         return
     }
@@ -386,13 +421,19 @@ const correctAnswerHandler = () => {
 
 // A function to handle wrong answer and lives
 const wrongAnswerHandler = () => {
+    //1. check if question is answered 
     if(isAnswered === false){
+        //stop timer
         stopTimer()
+        //remove 1 heart
         hearts = hearts -1
+        //remove 1 actual heart html element
         heartEls.lastElementChild.remove()
+        //change to answered
         isAnswered = true;
+        //call next round handler func
         nextRoundHandler()
-
+        //otherwise, skip
     }else{
         return
     }
@@ -401,19 +442,29 @@ const wrongAnswerHandler = () => {
 
 // A function to handle next round
 const nextRoundHandler = () => {
+    //1. check if player lost all hearts
     if (hearts <= 0){
+        //game over
         isGameOver = true
+        resultScreenHandler()
         return
     }
+    //2. check if there are more rounds
     if(currentRound < 7 ) {
+        //move to next round
         currentRound++
+        //reset answer state
         isAnswered = false
         selectedAnswer = null
+        //update round number
         roundTextEl.textContent = `Round ${currentRound} / 7`
+        //call recipe display handler func
         recipesDisplayHandler()
     }
+    //otherwise, game is over
     else{
         isGameOver = true;
+        resultScreenHandler()
 
     }
     
@@ -429,15 +480,71 @@ const updateTimer = () => {
     }
 }
 
+// A function to start countdown
 const startTimer = () => {
     timerId = setInterval(updateTimer,1000);
 }
 
+// A function to stop countdown
 const stopTimer = () => {
     clearInterval(timerId)
     timerId = null
 }
+
+//A function to display result screen
+const resultScreenHandler = () => {
+    menuScreen.style.display = 'none'
+    gameScreen.style.display = 'none'
+    resultScreen.style.display = 'flex'
+
+   if(isGameOver === true &&  hearts <=0){
+    resultTitleEl.textContent = 'You Lose!'
+    resultMsgEl.textContent = 'Oh no! you lose all your hearts.'
+    totalDiamondsEl.textContent = diamonds
+   } else{
+    resultTitleEl.textContent = 'You Win!'
+    resultMsgEl.textContent = 'Well done! your crafting skills are legendary.'
+    totalDiamondsEl.textContent = diamonds
+   }
+}
+
+// A function to restart the game
+const restGameHandler = () => {
+    stopTimer()
+    currentRound = 1
+    currentRecipe = 1
+    isAnswered = false
+    isGameOver = false
+    hearts = 3
+    diamonds = 0
+    selectedAnswer = null
+    timeLeft = 15
+
+    roundTextEl.textContent = `Round ${currentRound} / 7`
+    diamondCountEl.textContent = diamonds
+    timeLeftEl.textContent = timeLeft
+
+    heartEls.innerHTML = `<img src="assets/images/Heart_Img.png" alt="Heart">
+                <img src="assets/images/Heart_Img.png" alt="Heart">
+                <img src="assets/images/Heart_Img.png" alt="Heart">`
+            }
+// A function
+const restartGameHandler = () => {
+    restGameHandler()
+    resultScreen.style.display = 'none'
+    gameScreen.style.display = 'block'
+    recipesDisplayHandler();
+}
+
+// A function to return to main menu
+const mainMenuReturnHandler = () => {
+    stopTimer()
+    resultScreen.style.display = 'none'
+    gameScreen.style.display = 'none'
+    menuScreen.style.display = 'block'
+}
 /*---------- Event Listeners -----------------------------*/
+//Instructions 
 instructionsButtonEl.addEventListener('click', () => {
     instructionsModalEl.showModal()
 })
@@ -445,20 +552,30 @@ instructionsButtonEl.addEventListener('click', () => {
 closeInstructionsButtonEl.addEventListener('click', () => {
     instructionsModalEl.close()
 })
-
+//Category selection
 categorySelectionButtonEls.forEach(element => {
     element.addEventListener('click', categorySelectionHandler)
 });
 
 
-
+//Answer Cards
 answerCardEls.forEach((card,index) => {
     card.addEventListener('click', () => {
+        //1. store selected answer
         selectedAnswer = currentRecipe.options[index]
+        //2. check if answer is correct
         if(selectedAnswer.name === currentRecipe.name){
+            //if correct
             correctAnswerHandler()
         }else{
+            //if wrong
             wrongAnswerHandler()
         }
     })
 });
+
+//Restart
+restartButtonEl.addEventListener('click',restartGameHandler)
+
+//Return to main 
+mainButtonEl.addEventListener('click',mainMenuReturnHandler)
