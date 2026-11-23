@@ -259,7 +259,14 @@ const toolRecipes = [
 ];
 
 
-
+/*--------- Audio objects ----------------------------*/
+const backgroundSound = new Audio('assets/audio/Background_Sound.mp3')
+backgroundSound.loop = true;
+backgroundSound.volume = 0.3;
+const correctSound = new Audio('assets/audio/Correct_Sound.mp3')
+const incorrectSound = new Audio('assets/audio/Incorrect_Sound.mp3')
+const gameoverSound = new Audio('assets/audio/Gameover_Sound.mp3')
+gameoverSound.volume = 0.3;
 /*--------- Variables (state) ----------------------------*/
 let selectedCategory = ""
 let currentRound = 1
@@ -445,6 +452,10 @@ const wrongAnswerHandler = () => {
 const nextRoundHandler = () => {
     //1. check if player lost all hearts
     if (hearts <= 0){
+        backgroundSound.pause()
+        backgroundSound.currentTime = 0
+        gameoverSound.currentTime = 0
+        gameoverSound.play()
         //game over
         isGameOver = true
         resultScreenHandler()
@@ -464,6 +475,10 @@ const nextRoundHandler = () => {
     }
     //otherwise, game is over
     else{
+        backgroundSound.pause()
+        backgroundSound.currentTime = 0
+        gameoverSound.currentTime = 0
+        gameoverSound.play()
         isGameOver = true;
         resultScreenHandler()
 
@@ -534,6 +549,10 @@ const restGameHandler = () => {
 
 // A function to handle starting a new game after game over
 const restartGameHandler = () => {
+    gameoverSound.pause()
+    gameoverSound.currentTime = 0
+    backgroundSound.currentTime = 0
+    backgroundSound.play()
     restGameHandler()
     resultScreen.style.display = 'none'
     gameScreen.style.display = 'block'
@@ -542,6 +561,10 @@ const restartGameHandler = () => {
 
 // A function to return to main menu
 const mainMenuReturnHandler = () => {
+    gameoverSound.pause()
+    gameoverSound.currentTime = 0
+    backgroundSound.currentTime = 0
+    backgroundSound.play()
     stopTimer()
     resultScreen.style.display = 'none'
     gameScreen.style.display = 'none'
@@ -553,10 +576,12 @@ const showFeedbackHandler = (isCorrect) => {
     //1. check answer is correct
     if(isCorrect === true){
         //display correct message and apply css "green"
+        correctSound.play()
         feedbackMsgEl.textContent = "Correct, Well done!"
         feedbackMsgEl.className = 'correct'
     }else{
         //otherwise, display wrong message and apply css "red"
+        incorrectSound.play()
         feedbackMsgEl.textContent = "Incorrect, Hard luck!"
         feedbackMsgEl.className = 'incorrect'
     }
@@ -603,3 +628,6 @@ restartButtonEl.addEventListener('click',restartGameHandler)
 
 //Return to main 
 mainButtonEl.addEventListener('click',mainMenuReturnHandler)
+document.addEventListener('click',() => {
+    backgroundSound.play()
+},{once:true})
