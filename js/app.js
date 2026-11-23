@@ -311,6 +311,7 @@ const totalDiamondsEl = document.querySelector('#total')
 const restartButtonEl = document.querySelector('#restart-btn')
 const mainButtonEl = document.querySelector('#main-btn')
 
+const feedbackMsgEl = document.querySelector('#feedback-msg')
 /*------------- Functions --------------------------------*/
 // A function to handle category selection 
 const categorySelectionHandler = (event) => {
@@ -410,8 +411,8 @@ const correctAnswerHandler = () => {
         diamondCountEl.textContent = diamonds
         //change to answered
         isAnswered = true;
-        //call next round handler func
-        nextRoundHandler()
+        //show feedback
+        showFeedbackHandler(true)
         //otherwise, skip
     }else{
         return
@@ -431,8 +432,8 @@ const wrongAnswerHandler = () => {
         heartEls.lastElementChild.remove()
         //change to answered
         isAnswered = true;
-        //call next round handler func
-        nextRoundHandler()
+        //show feedback
+        showFeedbackHandler(false)
         //otherwise, skip
     }else{
         return
@@ -508,7 +509,7 @@ const resultScreenHandler = () => {
    }
 }
 
-// A function to restart the game
+// A function to rest the game data
 const restGameHandler = () => {
     stopTimer()
     currentRound = 1
@@ -523,12 +524,15 @@ const restGameHandler = () => {
     roundTextEl.textContent = `Round ${currentRound} / 7`
     diamondCountEl.textContent = diamonds
     timeLeftEl.textContent = timeLeft
+    feedbackMsgEl.textContent = ''
+    feedbackMsgEl.className = ''
 
     heartEls.innerHTML = `<img src="assets/images/Heart_Img.png" alt="Heart">
                 <img src="assets/images/Heart_Img.png" alt="Heart">
                 <img src="assets/images/Heart_Img.png" alt="Heart">`
             }
-// A function
+
+// A function to handle starting a new game after game over
 const restartGameHandler = () => {
     restGameHandler()
     resultScreen.style.display = 'none'
@@ -542,6 +546,26 @@ const mainMenuReturnHandler = () => {
     resultScreen.style.display = 'none'
     gameScreen.style.display = 'none'
     menuScreen.style.display = 'block'
+}
+
+// A function to show feedback 
+const showFeedbackHandler = (isCorrect) => {
+    //1. check answer is correct
+    if(isCorrect === true){
+        //display correct message and apply css "green"
+        feedbackMsgEl.textContent = "Correct, Well done!"
+        feedbackMsgEl.className = 'correct'
+    }else{
+        //otherwise, display wrong message and apply css "red"
+        feedbackMsgEl.textContent = "Incorrect, Hard luck!"
+        feedbackMsgEl.className = 'incorrect'
+    }
+    //after 2 sec, clear message and css, move to next round
+      setTimeout(() => {
+        feedbackMsgEl.textContent = ''
+        feedbackMsgEl.className = ''
+        nextRoundHandler()
+    }, 2000)
 }
 /*---------- Event Listeners -----------------------------*/
 //Instructions 
