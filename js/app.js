@@ -358,7 +358,6 @@ const recipesDisplayHandler = () => {
     timeLeftEl.textContent = timeLeft
     timeLeftEl.style.color = '#FFF3DF'
     startTimer()
-
 }
 
 // A function to handle ingredients display of current round
@@ -482,7 +481,7 @@ const nextRoundHandler = () => {
         gameoverSound.play()
         isGameOver = true;
         resultScreenHandler()
-
+        diamondRainHandler()
     }
     
 }
@@ -493,8 +492,6 @@ const updateTimer = () => {
     timeLeftEl.textContent = timeLeft
     if(timeLeft <= 5){
         timeLeftEl.style.color = 'red'
-    }else{
-        timeLeftEl.style.color = '#FFF3DF'
     }
     if(timeLeft === 0){
         stopTimer()
@@ -575,6 +572,7 @@ const mainMenuReturnHandler = () => {
     resultScreen.style.display = 'none'
     gameScreen.style.display = 'none'
     menuScreen.style.display = 'block'
+    document.querySelector('#diamond-rain').innerHTML = ''
 }
 
 // A function to show feedback 
@@ -597,6 +595,25 @@ const showFeedbackHandler = (isCorrect) => {
         feedbackMsgEl.className = ''
         nextRoundHandler()
     }, 2000)
+}
+
+// A function to create diamond rain
+const diamondRainHandler = () => {
+    const diamondRainEl = document.querySelector('#diamond-rain')
+
+    diamondRainEl.innerHTML = ''
+
+    for (let i = 0; i < 50; i++) {
+        const diamond = document.createElement('img')
+
+        diamond.src = 'assets/images/Diamond_Img.png'
+        diamond.classList.add('falling-diamond')
+
+        diamond.style.left = Math.random() * 100 + '%'
+        diamond.style.animationDelay = Math.random() * 2 + 's'
+
+        diamondRainEl.appendChild(diamond)
+    }
 }
 /*---------- Event Listeners -----------------------------*/
 //Instructions 

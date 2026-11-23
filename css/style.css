@@ -320,3 +320,30 @@ p{
 #feedback-msg.incorrect {
     color: #E47777;
 }
+
+#diamond-rain {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.falling-diamond {
+    position: absolute;
+    top: -50px;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    animation: diamondFall 3s linear forwards;
+}
+
+@keyframes diamondFall {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
