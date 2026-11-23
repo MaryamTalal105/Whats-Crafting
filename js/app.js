@@ -356,6 +356,7 @@ const recipesDisplayHandler = () => {
     //4. start timer 
     timeLeft = 15
     timeLeftEl.textContent = timeLeft
+    timeLeftEl.style.color = '#FFF3DF'
     startTimer()
 
 }
@@ -490,6 +491,11 @@ const nextRoundHandler = () => {
 const updateTimer = () => {
     timeLeft = timeLeft - 1
     timeLeftEl.textContent = timeLeft
+    if(timeLeft <= 5){
+        timeLeftEl.style.color = 'red'
+    }else{
+        timeLeftEl.style.color = '#FFF3DF'
+    }
     if(timeLeft === 0){
         stopTimer()
         wrongAnswerHandler()

@@ -2,7 +2,7 @@
 ## Project Planning
 
 - [Project board](https://github.com/users/MaryamTalal105/projects/1/views/1)
-- [Wireframe](./wireframe.png)
+- [Wireframe](assets/images/wireframe.png)
 
 ### Sprint 1
 
