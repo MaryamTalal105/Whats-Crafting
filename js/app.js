@@ -2,7 +2,6 @@
 const foodRecipes = [
     {
         name: "Rabbit Stew",
-        image: "Rabbit_Stew_Img.png",
         options: [
             { name: "Beetroot Soup", image: "assets/images/Beetroot_Soup_Img.png" },
             { name: "Mushroom Stew", image: "assets/images/Mushroom_Stew_Img.png" },
@@ -19,7 +18,6 @@ const foodRecipes = [
     },
     {
         name: "Mushroom Stew",
-        image: "Mushroom_Stew_Img.png",
         options: [
             { name: "Rabbit Stew", image: "assets/images/Rabbit_Stew_Img.png" },
             { name: "Beetroot Soup", image: "assets/images/Beetroot_Soup_Img.png" },
@@ -34,7 +32,6 @@ const foodRecipes = [
     },
     {
         name: "Beetroot Soup",
-        image: "Beetroot_Soup_Img.png",
         options: [
             { name: "Pumpkin Pie", image: "assets/images/Pumpkin_Pie_Img.png" },
             { name: "Mushroom Stew", image: "assets/images/Mushroom_Stew_Img.png" },
@@ -53,7 +50,6 @@ const foodRecipes = [
     },
     {
         name: "Bread",
-        image: "Bread_Img.png",
         options: [
             { name: "Cookie", image: "assets/images/Cookie_Img.png" },
             { name: "Bread", image: "assets/images/Bread_Img.png" },
@@ -68,7 +64,6 @@ const foodRecipes = [
     },
     {
         name: "Cake",
-        image: "Cake_Img.png",
         options: [
             { name: "Cake", image: "assets/images/Cake_Img.png" },
             { name: "Pumpkin Pie", image: "assets/images/Pumpkin_Pie_Img.png" },
@@ -88,7 +83,6 @@ const foodRecipes = [
     },
     {
         name: "Cookie",
-        image: "Cookie_Img.png",
         options: [
             { name: "Bread", image: "assets/images/Bread_Img.png" },
             { name: "Cookie", image: "assets/images/Cookie_Img.png" },
@@ -103,7 +97,6 @@ const foodRecipes = [
     },
     {
         name: "Pumpkin Pie",
-        image: "Pumpkin_Pie_Img.png",
         options: [
             { name: "Rabbit Stew", image: "assets/images/Rabbit_Stew_Img.png" },
             { name: "Cake", image: "assets/images/Cake_Img.png" },
@@ -123,7 +116,6 @@ const foodRecipes = [
 const toolRecipes = [
     {
         name: "Iron Pickaxe",
-        image: "Iron_Pickaxe_Img.png",
         options: [
             { name: "Wooden Pickaxe", image: "assets/images/Wooden_Pickaxe_Img.png" },
             { name: "Golden Pickaxe", image: "assets/images/Golden_Pickaxe_Img.png" },
@@ -143,7 +135,6 @@ const toolRecipes = [
     },
     {
         name: "Wooden Shovel",
-        image: "Wooden_Shovel_Img.png",
         options: [
             { name: "Wooden Shovel", image: "assets/images/Wooden_Shovel_Img.png" },
             { name: "Diamond Shovel", image: "assets/images/Diamond_Shovel_Img.png" },
@@ -163,7 +154,6 @@ const toolRecipes = [
     },
     {
         name: "Diamond Sword",
-        image: "Diamond_Sword_Img.png",
         options: [
             { name: "Golden Sword", image: "assets/images/Golden_Sword_Img.png" },
             { name: "Diamond Sword", image: "assets/images/Diamond_Sword_Img.png" },
@@ -183,7 +173,6 @@ const toolRecipes = [
     },
     {
         name: "Shears",
-        image: "Shears_Img.png",
         options: [
             { name: "Golden Shovel", image: "assets/images/Golden_Shovel_Img.png" },
             { name: "Brush", image: "assets/images/Brush_Img.png" },
@@ -199,7 +188,6 @@ const toolRecipes = [
     },
     {
         name: "Fishing Rod",
-        image: "Fishing_Rod_Img.png",
         options: [
             { name: "Fishing Rod", image: "assets/images/Fishing_Rod_Img.png" },
             { name: "Wooden Shovel", image: "assets/images/Wooden_Shovel_Img.png" },
@@ -218,7 +206,6 @@ const toolRecipes = [
     },
     {
         name: "Brush",
-        image: "Brush_Img.png",
         options: [
             { name: "Brush", image: "assets/images/Brush_Img.png" },
             { name: "Shield", image: "assets/images/Shield_Img.png" },
@@ -238,7 +225,6 @@ const toolRecipes = [
     },
     {
         name: "Shield",
-        image: "Shield_Img.png",
         options: [
             { name: "Fishing Rod", image: "assets/images/Fishing_Rod_Img.png" },
             { name: "Brush", image: "assets/images/Brush_Img.png" },
@@ -270,7 +256,7 @@ gameoverSound.volume = 0.3;
 /*--------- Variables (state) ----------------------------*/
 let selectedCategory = ""
 let currentRound = 1
-let currentRecipe = 1
+let currentRecipe = null
 let availableRecipes = []
 let isAnswered = false
 let isGameOver = false
@@ -279,7 +265,7 @@ let diamonds = 0
 //stores the remaining seconds
 let timeLeft = 15
 //stores identifier for the repeating timer to stop later
-let timerId = null 
+let timerId = null
 let selectedAnswer = null
 
 
@@ -287,9 +273,6 @@ let selectedAnswer = null
 const instructionsButtonEl = document.querySelector('#open-instructions')
 const instructionsModalEl = document.querySelector('#instructions')
 const closeInstructionsButtonEl = document.querySelector("#close-instructions")
-
-const foodButtonEl = document.querySelector('#food')
-const toolButtonEl = document.querySelector('#tools')
 
 const menuScreen = document.querySelector('#main-menu')
 const gameScreen = document.querySelector('#game-screen')
@@ -305,7 +288,7 @@ const answerCardImgs = document.querySelectorAll('.answer-card img')
 const answerCardPs = document.querySelectorAll('.answer-card p')
 
 const diamondCountEl = document.querySelector('#diamond-count')
-const heartEls =  document.querySelector('#hearts')
+const heartEls = document.querySelector('#hearts')
 
 const timeLeftEl = document.querySelector('#time-left')
 timeLeftEl.textContent = timeLeft
@@ -324,7 +307,6 @@ const feedbackMsgEl = document.querySelector('#feedback-msg')
 const categorySelectionHandler = (event) => {
     //1. store category selected
     selectedCategory = event.target.textContent;
-    //console.log(selectedCategory)
     //2. call restart func
     restGameHandler()
     //3. hide menu and show game screen
@@ -332,14 +314,13 @@ const categorySelectionHandler = (event) => {
     gameScreen.style.display = 'block';
 
     //4. check selected category
-    if (selectedCategory === 'Food'){
+    if (selectedCategory === 'Food') {
         //assign corresponding array "Food recipes or tools recipes"
         availableRecipes = foodRecipes
-        //Test: console.log(availableRecipes)
-        
-    }else{
-        availableRecipes = toolRecipes 
-        //Test: console.log(toolRecipes)
+
+    } else {
+        availableRecipes = toolRecipes
+
     }
     //4. call recipe display handler func
     recipesDisplayHandler()
@@ -369,16 +350,16 @@ const ingredientsDisplayHandler = () => {
         //3. get the ingredient for this slot
         const ingredient = currentRecipe.ingredients[index]
         //4. check if ingredient is null, skip
-        if(ingredient === null) {
+        if (ingredient === null) {
             return
             //otherwise, create img element, assign it src and append
-        }else{
+        } else {
             const ingredientImg = document.createElement('img');
             ingredientImg.src = ingredient.image
             slot.appendChild(ingredientImg)
 
         }
-        
+
     });
 
 
@@ -387,11 +368,11 @@ const ingredientsDisplayHandler = () => {
 // A function to handle display of answer card options
 const answerCardsHandler = () => {
     //1. loop through the 3 answer cards
-    answerCardEls.forEach((card,index) => {
+    answerCardEls.forEach((card, index) => {
 
         //2. get the answer for this card
         const answer = currentRecipe.options[index]
-        
+
         //3. get the answer name and img
         const answerName = answer.name
         const answerImage = answer.image
@@ -410,7 +391,7 @@ const answerCardsHandler = () => {
 // A function to handle correct answer and rewards
 const correctAnswerHandler = () => {
     //1. check if question is answered 
-    if(isAnswered === false){
+    if (isAnswered === false) {
         //stop timer
         stopTimer()
         //reward
@@ -421,7 +402,7 @@ const correctAnswerHandler = () => {
         //show feedback
         showFeedbackHandler(true)
         //otherwise, skip
-    }else{
+    } else {
         return
     }
 
@@ -430,11 +411,11 @@ const correctAnswerHandler = () => {
 // A function to handle wrong answer and lives
 const wrongAnswerHandler = () => {
     //1. check if question is answered 
-    if(isAnswered === false){
+    if (isAnswered === false) {
         //stop timer
         stopTimer()
         //remove 1 heart
-        hearts = hearts -1
+        hearts = hearts - 1
         //remove 1 actual heart html element
         heartEls.lastElementChild.remove()
         //change to answered
@@ -442,7 +423,7 @@ const wrongAnswerHandler = () => {
         //show feedback
         showFeedbackHandler(false)
         //otherwise, skip
-    }else{
+    } else {
         return
     }
 }
@@ -451,7 +432,7 @@ const wrongAnswerHandler = () => {
 // A function to handle next round
 const nextRoundHandler = () => {
     //1. check if player lost all hearts
-    if (hearts <= 0){
+    if (hearts <= 0) {
         backgroundSound.pause()
         backgroundSound.currentTime = 0
         gameoverSound.currentTime = 0
@@ -462,7 +443,7 @@ const nextRoundHandler = () => {
         return
     }
     //2. check if there are more rounds
-    if(currentRound < 7 ) {
+    if (currentRound < 7) {
         //move to next round
         currentRound++
         //reset answer state
@@ -474,7 +455,7 @@ const nextRoundHandler = () => {
         recipesDisplayHandler()
     }
     //otherwise, game is over
-    else{
+    else {
         backgroundSound.pause()
         backgroundSound.currentTime = 0
         gameoverSound.currentTime = 0
@@ -483,17 +464,17 @@ const nextRoundHandler = () => {
         resultScreenHandler()
         diamondRainHandler()
     }
-    
+
 }
 
 // A function to substract 1 seconds at a time from timeLeft
 const updateTimer = () => {
     timeLeft = timeLeft - 1
     timeLeftEl.textContent = timeLeft
-    if(timeLeft <= 5){
+    if (timeLeft <= 5) {
         timeLeftEl.style.color = 'red'
     }
-    if(timeLeft === 0){
+    if (timeLeft === 0) {
         stopTimer()
         wrongAnswerHandler()
     }
@@ -501,7 +482,7 @@ const updateTimer = () => {
 
 // A function to start countdown
 const startTimer = () => {
-    timerId = setInterval(updateTimer,1000);
+    timerId = setInterval(updateTimer, 1000);
 }
 
 // A function to stop countdown
@@ -516,22 +497,22 @@ const resultScreenHandler = () => {
     gameScreen.style.display = 'none'
     resultScreen.style.display = 'flex'
 
-   if(isGameOver === true &&  hearts <=0){
-    resultTitleEl.textContent = 'You Lose!'
-    resultMsgEl.textContent = 'Oh no! you lose all your hearts.'
-    totalDiamondsEl.textContent = diamonds
-   } else{
-    resultTitleEl.textContent = 'You Win!'
-    resultMsgEl.textContent = 'Well done! your crafting skills are legendary.'
-    totalDiamondsEl.textContent = diamonds
-   }
+    if (isGameOver === true && hearts <= 0) {
+        resultTitleEl.textContent = 'You Lose!'
+        resultMsgEl.textContent = 'Oh no! you lose all your hearts.'
+        totalDiamondsEl.textContent = diamonds
+    } else {
+        resultTitleEl.textContent = 'You Win!'
+        resultMsgEl.textContent = 'Well done! your crafting skills are legendary.'
+        totalDiamondsEl.textContent = diamonds
+    }
 }
 
 // A function to rest the game data
 const restGameHandler = () => {
     stopTimer()
     currentRound = 1
-    currentRecipe = 1
+    currentRecipe = null
     isAnswered = false
     isGameOver = false
     hearts = 3
@@ -548,7 +529,7 @@ const restGameHandler = () => {
     heartEls.innerHTML = `<img src="assets/images/Heart_Img.png" alt="Heart">
                 <img src="assets/images/Heart_Img.png" alt="Heart">
                 <img src="assets/images/Heart_Img.png" alt="Heart">`
-            }
+}
 
 // A function to handle starting a new game after game over
 const restartGameHandler = () => {
@@ -578,19 +559,19 @@ const mainMenuReturnHandler = () => {
 // A function to show feedback 
 const showFeedbackHandler = (isCorrect) => {
     //1. check answer is correct
-    if(isCorrect === true){
+    if (isCorrect === true) {
         //display correct message and apply css "green"
         correctSound.play()
         feedbackMsgEl.textContent = "Correct, Well done!"
         feedbackMsgEl.className = 'correct'
-    }else{
+    } else {
         //otherwise, display wrong message and apply css "red"
         incorrectSound.play()
         feedbackMsgEl.textContent = "Incorrect, Hard luck!"
         feedbackMsgEl.className = 'incorrect'
     }
     //after 2 sec, clear message and css, move to next round
-      setTimeout(() => {
+    setTimeout(() => {
         feedbackMsgEl.textContent = ''
         feedbackMsgEl.className = ''
         nextRoundHandler()
@@ -631,15 +612,15 @@ categorySelectionButtonEls.forEach(element => {
 
 
 //Answer Cards
-answerCardEls.forEach((card,index) => {
+answerCardEls.forEach((card, index) => {
     card.addEventListener('click', () => {
         //1. store selected answer
         selectedAnswer = currentRecipe.options[index]
         //2. check if answer is correct
-        if(selectedAnswer.name === currentRecipe.name){
+        if (selectedAnswer.name === currentRecipe.name) {
             //if correct
             correctAnswerHandler()
-        }else{
+        } else {
             //if wrong
             wrongAnswerHandler()
         }
@@ -647,10 +628,10 @@ answerCardEls.forEach((card,index) => {
 });
 
 //Restart
-restartButtonEl.addEventListener('click',restartGameHandler)
+restartButtonEl.addEventListener('click', restartGameHandler)
 
 //Return to main 
-mainButtonEl.addEventListener('click',mainMenuReturnHandler)
-document.addEventListener('click',() => {
+mainButtonEl.addEventListener('click', mainMenuReturnHandler)
+document.addEventListener('click', () => {
     backgroundSound.play()
-},{once:true})
+}, { once: true })

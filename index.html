@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,100 +11,102 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png"> 
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png">
     <script defer src="js/app.js"></script>
     <title>What's Crafting?</title>
 </head>
+
 <body>
     <!-- Main-Menu Section -->
     <section id="main-menu">
-    <header>
-        <h1>What's Crafting?</h1>
-        <p>A crafting quiz, Identify the item from the given crafting recipe.</p>
-        <button class="instructions-btn" id="open-instructions">instructions</button>
-        <dialog id="instructions">
-            <h2>Welcome crafter!</h2>
-            <p>The rules are easy..<br>
-            pick a category, guess the recipe, beat the timer, collect diamonds for every correct answer,
-            and keep your hearts and become a crafting master!</p>
-            <button class="close-btn" id="close-instructions">&#x2716</button>
-        </dialog>
-    </header>
-    <div id="category">
-        <p>Choose your category</p>
+        <header>
+            <h1>What's Crafting?</h1>
+            <p>A crafting quiz, Identify the item from the given crafting recipe.</p>
+            <button class="instructions-btn" id="open-instructions">instructions</button>
+            <dialog id="instructions">
+                <h2>Welcome crafter!</h2>
+                <p>The rules are easy..<br>
+                    pick a category, guess the recipe, beat the timer, collect diamonds for every correct answer,
+                    and keep your hearts and become a crafting master!</p>
+                <button class="close-btn" id="close-instructions">&#x2716</button>
+            </dialog>
+        </header>
+        <div id="category">
+            <p>Choose your category</p>
             <button class="category-btn" id="food">Food</button>
-            <button class="category-btn" id="tools">Tools</button> 
-    </div>
+            <button class="category-btn" id="tools">Tools</button>
+        </div>
     </section>
     <!-- Game-Screen Section -->
-    <section id ="game-screen">
+    <section id="game-screen">
         <!-- Game-Screen Header -->
         <header>
             <h1>What's Crafting?</h1>
             <div id="game-states">
-            <div id="hearts">
-                <img src="assets/images/Heart_Img.png" alt="Heart">
-                <img src="assets/images/Heart_Img.png" alt="Heart">
-                <img src="assets/images/Heart_Img.png" alt="Heart">
+                <div id="hearts">
+                    <img src="assets/images/Heart_Img.png" alt="Heart">
+                    <img src="assets/images/Heart_Img.png" alt="Heart">
+                    <img src="assets/images/Heart_Img.png" alt="Heart">
+                </div>
+                <div id="timer">
+                    <p>Time Left: <span id="time-left">0</span> sec</p>
+                </div>
+                <div id="diamond">
+                    <img src="assets/images/Diamond_Img.png" alt="Diamond">
+                    <p id='diamond-count'>0</p>
+                </div>
+        </header>
+        </div>
+        <!-- Game-screen Body -->
+        <div id="game-body">
+            <section id="crafting-grid">
+                <div class="sqr" id="1"></div>
+                <div class="sqr" id="2"></div>
+                <div class="sqr" id="3"></div>
+
+                <div class="sqr" id="4"></div>
+                <div class="sqr" id="5"></div>
+                <div class="sqr" id="6"></div>
+
+                <div class="sqr" id="7"></div>
+                <div class="sqr" id="8"></div>
+                <div class="sqr" id="9"></div>
+            </section>
+            <div id="feedback-msg">
             </div>
-            <div id="timer">
-                <p>Time Left: <span id="time-left">0</span> sec</p>
+            <section id="answer-section">
+                <div class="answer-card" id="ans-1">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+                <div class="answer-card" id="ans-2">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+                <div class="answer-card" id="ans-3">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+            </section>
+            <div id="round-control">
+                <p id="round">Round 1 / 7</p>
             </div>
-            <div id="diamond">
-                <img src="assets/images/Diamond_Img.png" alt="Diamond">
-                <p id ='diamond-count'>0</p>
-            </div>
-            </header>
-            </div>
-            <!-- Game-screen Body -->
-             <div id="game-body">
-                      <section id="crafting-grid">
-                      <div class="sqr" id="1"></div>
-                      <div class="sqr" id="2"></div>
-                      <div class="sqr" id="3"></div>
-      
-                      <div class="sqr" id="4"></div>
-                      <div class="sqr" id="5"></div>
-                      <div class="sqr" id="6"></div>
-      
-                      <div class="sqr" id="7"></div>
-                      <div class="sqr" id="8"></div>
-                      <div class="sqr" id="9"></div>
-                      </section>
-                     <div id ="feedback-msg">
-                     </div>
-                    <section id="answer-section">
-                        <div class="answer-card" id="ans-1">
-                            <img src="" alt="">
-                            <p></p>
-                        </div>
-                        <div class="answer-card" id="ans-2">
-                             <img src="" alt="">
-                            <p></p>
-                        </div>
-                        <div class="answer-card" id="ans-3">
-                             <img src="" alt="">
-                            <p></p>
-                        </div>
-                    </section>
-                    <div id="round-control">
-                    <p id="round">Round 1 / 7</p>
-                    </div>
-                    </div>
+        </div>
     </section>
     <!-- Game Over Screen -->
-                     <div id="result-screen">
-                        <div id="diamond-rain"></div>
-                        <h1 id="result-title">You Win!</h1>
-                        <p id="result-msg">You completed all 7 rounds</p>
-                        <div id="final-score">
-                            <img src="assets/images/Diamond_Img.png" alt="Diamond">
-                            <p>Total Diamonds: <span id="total">0</span></p>
-                        </div>
-                        <div id="result-buttons">
-                            <button id="restart-btn">Play Again</button>
-                            <button id="main-btn">Main Menu</button>
-                        </div>
-                     </div>
+    <div id="result-screen">
+        <div id="diamond-rain"></div>
+        <h1 id="result-title">You Win!</h1>
+        <p id="result-msg">You completed all 7 rounds</p>
+        <div id="final-score">
+            <img src="assets/images/Diamond_Img.png" alt="Diamond">
+            <p>Total Diamonds: <span id="total">0</span></p>
+        </div>
+        <div id="result-buttons">
+            <button id="restart-btn">Play Again</button>
+            <button id="main-btn">Main Menu</button>
+        </div>
+    </div>
 </body>
+
 </html>
