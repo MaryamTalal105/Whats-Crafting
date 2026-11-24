@@ -6,6 +6,9 @@ Minecraft has been one of my favourite games since childhood. I spent countless 
 
 With **What's Crafting?**, I wanted to bring a small part of that childhood experience into a project of my own. Inspired by Minecraft's iconic crafting system, I combined it with a cozy visual theme to create an interactive quiz where players are presented with a *3×3 crafting grid* and must identify the correct item from three possible answers before the timer runs out.
 
+<img src="assets/images/Screenshot%202026-11-24%20123321.png" alt="Main Menu" width="600">
+<img src="assets/images/Screenshot%202026-11-24%20123346.png" alt="Gameplay" width="600">
+<img src="assets/images/Screenshot%202026-11-24%20124238.png" alt="Win Condition" width="600">
 
 ## 🎯 How to Play
 
